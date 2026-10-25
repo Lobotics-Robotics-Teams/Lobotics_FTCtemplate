@@ -16,7 +16,6 @@ import com.seattlesolvers.solverslib.command.button.GamepadButton;
 import com.seattlesolvers.solverslib.gamepad.GamepadEx;
 import com.seattlesolvers.solverslib.gamepad.GamepadKeys;
 
-import org.firstinspires.ftc.teamcode.Commands.AutoCommands;
 import org.firstinspires.ftc.teamcode.pedro.Constants;
 
 @TeleOp(name="Example TeleOp")
@@ -50,6 +49,6 @@ public class TeleOpTest extends LinearOpMode {
             telemetry.update();
 
             Button downGamepad = new GamepadButton(gamepadEx, GamepadKeys.Button.DPAD_DOWN);
-            downGamepad.whenHeld(AutoCommands.autoAlign(follower));
+            //downGamepad.whenHeld(AutoCommands.autoAlign(follower));
         }
     }}
