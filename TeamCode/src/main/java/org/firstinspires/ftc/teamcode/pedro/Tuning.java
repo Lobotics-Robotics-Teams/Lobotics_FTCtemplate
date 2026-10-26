@@ -18,11 +18,6 @@ public class Tuning {
     }
 
     @Tuner
-    public static Procedure tests() {
-        return new Tests(hardwareMap -> new Mecanum(hardwareMap, Constants.driveConfig), null, null);
-    }
-
-    @Tuner
     public static Procedure twoWheelTuner() {
         return new TwoWheelTuner();
     }
@@ -35,5 +30,11 @@ public class Tuning {
     @Tuner
     public static Procedure foresightTuner() {
         return new ForesightTuner((hardwareMap) -> new PinpointLocalizer(hardwareMap, Constants.localizerConfig), (hardwareMap) -> new Mecanum(hardwareMap, Constants.driveConfig));
+    }
+
+
+    @Tuner
+    public static Procedure tests() {
+        return new Tests(hardwareMap -> new Mecanum(hardwareMap, Constants.driveConfig), null, null);
     }
 }

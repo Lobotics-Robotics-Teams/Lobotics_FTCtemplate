@@ -36,7 +36,7 @@ public class Constants {
 
     public static PinpointConfig localizerConfig = new PinpointConfig(
             c -> {
-                c.name.set(null);
+
             }
     );
 
