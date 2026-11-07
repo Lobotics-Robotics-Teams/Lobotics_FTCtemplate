@@ -8,6 +8,7 @@ import com.seattlesolvers.solverslib.command.Commands;
 import com.seattlesolvers.solverslib.command.Subsystem;
 
 import org.firstinspires.ftc.teamcode.Subsystems.AutoSubsystem;
+import org.firstinspires.ftc.teamcode.Subsystems.MotorSubsystem;
 import org.firstinspires.ftc.teamcode.pedro.Constants;
 
 public abstract class GlobalOpMode extends OpMode {
@@ -16,16 +17,17 @@ public abstract class GlobalOpMode extends OpMode {
     public final AllianceSelector currentAlliance;
 
     public AutoSubsystem autoSubsystem;
+    public MotorSubsystem motorSubsystem;
     public GlobalOpMode(AllianceSelector allianceSelector, boolean isAuto) {
         this.currentAlliance = allianceSelector;
         this.isAuto = isAuto;
-        register(autoSubsystem = new AutoSubsystem(follower, currentAlliance));
     }
 
     public void schedule(Command... commands){
         CommandScheduler.getInstance().schedule(commands);
     }
 
+    //Aqui registramos todos nuestros subsistemas en el CommandScheduler para que se manden a llamar el metodo periodic() a la vez.
     public void register(Subsystem... subsystems) {
         CommandScheduler.getInstance().registerSubsystem(subsystems);
     }
@@ -39,7 +41,11 @@ public abstract class GlobalOpMode extends OpMode {
     @Override
     public void init() {
         follower = Constants.create(hardwareMap);
-        register(autoSubsystem = new AutoSubsystem(follower, currentAlliance));
+
+        //Aqui mandamos a llamar el metodo registrer() y les mandamos los subsistemas a registrar
+        //Es donde vamos a editar cuando agreguemos mas subsistemas
+        register(autoSubsystem = new AutoSubsystem(follower, currentAlliance),
+                motorSubsystem = new MotorSubsystem(hardwareMap, telemetry));
         follower.update();
         initialize();
     }

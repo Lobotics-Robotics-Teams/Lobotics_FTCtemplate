@@ -49,6 +49,8 @@ public class Auto1 extends GlobalOpMode {
         currentPose = follower.pose();
     }
 
+    //Se declaran los paths y los comandos a realizar
+
     private Path startToScore() {
         return  line(startPose, scorePose).linear(startPose,scorePose);
     }
