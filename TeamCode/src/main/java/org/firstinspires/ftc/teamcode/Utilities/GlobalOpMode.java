@@ -59,6 +59,12 @@ public abstract class GlobalOpMode extends OpMode {
 
     @Override
     public void loop() {
+        telemetry.addData("X", follower.pose().x());
+        telemetry.addData("Y", follower.pose().y());
+        telemetry.addData("Heading", Math.toDegrees(follower.pose().heading()));
+        telemetry.addData("Follower Mode", follower.mode());
+        telemetry.update();
+
         CommandScheduler.getInstance().run();
         run();
         follower.update();

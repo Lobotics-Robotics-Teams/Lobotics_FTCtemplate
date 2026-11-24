@@ -31,6 +31,8 @@ public class TeleOpTest extends LinearOpMode {
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
+
+            
             powers = ManualDrive.fieldCentric(
                     -gamepad1.left_stick_y,
                     -gamepad1.left_stick_x,
@@ -38,7 +40,7 @@ public class TeleOpTest extends LinearOpMode {
                     follower.pose().heading()
             );
 
-            //follower.manual(powers);
+            follower.manual(powers);
             follower.manual(-gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x);
             follower.update();
 
