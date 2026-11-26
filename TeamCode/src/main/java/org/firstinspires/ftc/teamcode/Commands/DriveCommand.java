@@ -14,6 +14,7 @@ public class DriveCommand extends CommandBase {
     public DriveCommand(AutoSubsystem autoSubsystem, Gamepad gamepad) {
         this.autoSubsystem = autoSubsystem;
         this.gamepad = gamepad;
+        addRequirements(autoSubsystem);
     }
 
     @Override
@@ -22,7 +23,7 @@ public class DriveCommand extends CommandBase {
 
     @Override
     public void execute() {
-        autoSubsystem.driveFollower(gamepad.left_stick_y, gamepad.left_stick_x, gamepad.right_stick_y);
+        autoSubsystem.driveFollower(gamepad);
     }
 
     @Override

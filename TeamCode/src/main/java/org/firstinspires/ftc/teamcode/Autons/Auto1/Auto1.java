@@ -20,7 +20,7 @@ import static org.firstinspires.ftc.teamcode.Subsystems.AutoSubsystem.currentPos
 public class Auto1 extends GlobalOpMode {
 
     PoseFactory p(){
-        return AllianceSelector.BLUE.equals(currentAlliance) ? PoseFactory.degrees().mirrorX(70.75) : PoseFactory.degrees();
+        return AllianceSelector.BLUE.equals(currentAlliance) ? PoseFactory.degrees().mirrorX(70.75).mirrorY(70.75) : PoseFactory.degrees();
     }
     private Pose startPose;
     private Pose scorePose;

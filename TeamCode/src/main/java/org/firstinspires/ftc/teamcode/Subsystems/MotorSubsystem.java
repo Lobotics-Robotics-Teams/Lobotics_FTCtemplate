@@ -10,20 +10,17 @@ import org.firstinspires.ftc.teamcode.Utilities.Constants;
 
 public class MotorSubsystem extends SubsystemBase {
     DcMotorEx motor;
-    Telemetry telemetry;
 
     //El metodo constructor. Aqui recibe el HardwareMap y el Telemetry que nos otorga OpMode y las pasa a mi calse MotorSubsystem.
     //Cabe aclarar que este es un ejemplo de su uso, pero se puede manejar depende de las necesiadades.
-    public MotorSubsystem(HardwareMap hardwareMap, Telemetry telemetry) {
-        this.telemetry = telemetry;
+    public MotorSubsystem(HardwareMap hardwareMap) {
         motor = hardwareMap.get(DcMotorEx.class, Constants.ExampleConstants.motorName);
     }
 
     //Con la libreria de Solverslib, cuando registramos el subsistema con registrer() se manda a ejecutar el periodic del SubsystemBaase
     @Override
     public void periodic() {
-        telemetry.addData("Motor velocity", motor.getVelocity());
-        telemetry.update();
+        //set periodic
     }
 
     //Se crean las funciones de mi subsistema para acceder a ellas por medio de comandos
